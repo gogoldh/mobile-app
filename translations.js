@@ -29,6 +29,9 @@ const translations = {
     noDescription: "Geen beschrijving beschikbaar.",
     nameNotAvailable: "Naam niet beschikbaar",
     priceNotAvailable: "Prijs niet beschikbaar",
+    removedFromCart: "Item verwijderd",
+    undo: "Ongedaan maken",
+    quantity: "Aantal",
   },
   en: {
     profile: "Profile & Settings",
@@ -60,6 +63,9 @@ const translations = {
     noDescription: "No description available.",
     nameNotAvailable: "Name not available",
     priceNotAvailable: "Price not available",
+    removedFromCart: "Removed from cart",
+    undo: "Undo",
+    quantity: "Quantity",
   },
 };
 
