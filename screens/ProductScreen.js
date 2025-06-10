@@ -66,8 +66,10 @@ const ProductsScreen = ({ navigation }) => {
               : []) ||
             [];
 
-          const normalizedCategoryIds = rawCategoryIds.map((cat) =>
-            typeof cat === "object" && cat.id ? cat.id : cat
+          const normalizedCategoryIds = rawCategoryIds
+            .flat()
+            .map((cat) =>
+              typeof cat === "object" && cat.id ? String(cat.id) : String(cat)
           );
 
           return {

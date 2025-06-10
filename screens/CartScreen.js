@@ -244,7 +244,10 @@ const CartScreen = ({ navigation }) => {
             <Text style={[styles.totalText, darkMode && { color: "#ffe066" }]}>
               {t.total}: €{totalPrice.toFixed(2)}
             </Text>
-            <TouchableOpacity style={styles.bestelButton} onPress={handleBestel}>
+           <TouchableOpacity
+              style={styles.bestelButton}
+              onPress={() => navigation.navigate("CheckOutScreen")}
+            >
               <Text style={styles.bestelButtonText}>{t.bestel}</Text>
             </TouchableOpacity>
           </View>

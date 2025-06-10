@@ -5,9 +5,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { Image } from "react-native";
 import ProductStack from "../navigation/ProductStack";
 import HomeStack from "../navigation/HomeStack";
+import BlogStack from "../navigation/BlogStack";
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
-import OrderDetailScreen from "../screens/OrderDetailScreen"; // <-- Import this!
+import OrderDetailScreen from "../screens/OrderDetailScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import CheckOutScreen from "../screens/CheckOutScreen";
 import { useSettings } from "../SettingsContext";
 import { useProfile } from "../ProfileContext";
 
@@ -44,7 +46,7 @@ const BottomNav = () => {
           let iconName;
           if (route.name === "Home") iconName = "home";
           else if (route.name === "Products") iconName = "beer";
-          else if (route.name === "Orders") iconName = "receipt";
+          else if (route.name === "Blogs") iconName = "newspaper";
           else if (route.name === "Profile") {
             if (profileImage) {
               return (
@@ -81,9 +83,9 @@ const BottomNav = () => {
         options={{ tabBarLabel: language === "nl" ? "Producten" : "Products" }}
       />
       <Tab.Screen
-        name="Orders"
-        component={OrdersStack} // <-- Use the stack here!
-        options={{ tabBarLabel: language === "nl" ? "Bestellingen" : "Orders" }}
+        name="Blogs"
+        component={BlogStack}
+        options={{ tabBarLabel: language === "nl" ? "Blogs" : "Blogs" }}
       />
       <Tab.Screen
         name="Profile"

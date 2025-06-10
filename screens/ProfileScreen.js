@@ -137,7 +137,7 @@ const ProfileScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={{ marginTop: 24, backgroundColor: darkMode ? "#ffe066" : "#333", padding: 14, borderRadius: 8 }}
-        onPress={() => navigation.navigate("Orders")}
+        onPress={() => navigation.navigate("OrderHistoryScreen")}
       >
         <Text style={{ color: darkMode ? "#333" : "#fff", fontWeight: "bold", fontSize: 16 }}>
           {t.orderHistory}

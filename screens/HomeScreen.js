@@ -68,8 +68,10 @@ const HomeScreen = ({ navigation }) => {
               : []) ||
             [];
 
-          const normalizedCategoryIds = rawCategoryIds.map((cat) =>
-            typeof cat === "object" && cat.id ? cat.id : cat
+          const normalizedCategoryIds = rawCategoryIds
+            .flat()
+            .map((cat) =>
+            typeof cat === "object" && cat.id ? String(cat.id) : String(cat)
           );
 
           return {
@@ -100,7 +102,8 @@ const HomeScreen = ({ navigation }) => {
         setLoading(false);
       });
   }, [language]);
-
+console.log("selectedCategoryId:", selectedCategoryId);
+console.log("product categories:", products.map(p => p.categories));
   const filteredByCategory =
     selectedCategoryId === "all"
       ? products
