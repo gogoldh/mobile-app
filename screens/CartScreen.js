@@ -195,15 +195,23 @@ const CartScreen = ({ navigation }) => {
             <Text style={[styles.popupSubtitle, darkMode && { color: "#fff" }]}>
               {t.thankYouSubtitle}
             </Text>
-            <TouchableOpacity
-              style={styles.popupButton}
-              onPress={() => {
-                setShowThankYou(false);
-                navigation.navigate("Home");
-              }}
-            >
-              <Text style={styles.popupButtonText}>{t.close}</Text>
-            </TouchableOpacity>
+           <TouchableOpacity
+  style={styles.popupButton}
+  onPress={() => {
+    setShowThankYou(false);
+    // Probeer eerst de parent, en als dat niet werkt, de parent van de parent
+    if (navigation.getParent()?.navigate) {
+      navigation.navigate("Home");
+      navigation.getParent().navigate("Home");
+    } else if (navigation.getParent()?.getParent()?.navigate) {
+      navigation.getParent().getParent().navigate("Home");
+    } else {
+      navigation.navigate("Home");
+    }
+  }}
+>
+  <Text style={styles.popupButtonText}>{t.close}</Text>
+</TouchableOpacity>
           </View>
         </View>
       )}

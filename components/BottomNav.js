@@ -1,15 +1,28 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "react-native";
 import ProductStack from "../navigation/ProductStack";
 import HomeStack from "../navigation/HomeStack";
 import OrderHistoryScreen from "../screens/OrderHistoryScreen";
+import OrderDetailScreen from "../screens/OrderDetailScreen"; // <-- Import this!
 import ProfileScreen from "../screens/ProfileScreen";
 import { useSettings } from "../SettingsContext";
 import { useProfile } from "../ProfileContext";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+// Create a stack for Orders
+function OrdersStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="OrderHistoryScreen" component={OrderHistoryScreen} />
+      <Stack.Screen name="OrderDetailScreen" component={OrderDetailScreen} />
+    </Stack.Navigator>
+  );
+}
 
 const BottomNav = () => {
   const { darkMode, language } = useSettings();
@@ -69,7 +82,7 @@ const BottomNav = () => {
       />
       <Tab.Screen
         name="Orders"
-        component={OrderHistoryScreen}
+        component={OrdersStack} // <-- Use the stack here!
         options={{ tabBarLabel: language === "nl" ? "Bestellingen" : "Orders" }}
       />
       <Tab.Screen

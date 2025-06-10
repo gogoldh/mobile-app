@@ -58,7 +58,7 @@ const OrderHistoryScreen = ({ navigation }) => {
 
   const renderOrder = ({ item, index }) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate("OrderDetail", { order: item })}
+      onPress={() => navigation.navigate("OrderDetailScreen", { order: item })}
       activeOpacity={0.85}
       style={[
         styles.orderCard,
